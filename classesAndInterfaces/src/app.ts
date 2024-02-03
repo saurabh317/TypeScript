@@ -19,6 +19,8 @@
 
 
 // *******************access modifiers : public and private *************************
+//note if a variable is defined private , it will not be accesible even if that class is being inherited
+//but if it is defined with protected , we can still access that inside the child class  
 class Department {
   name : string;
   private employee : string[] = [];
