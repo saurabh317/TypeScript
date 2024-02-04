@@ -1,4 +1,4 @@
-// Creating classes
+// *************************Creating classes****************************
 // class Department {
 //   name : string;
 //   employee : string[] = [];
@@ -48,46 +48,81 @@
 // // console.log(accounting);
 // accounting.describe();
 
-// ***********************INHERITANCE**************************
- abstract class Vehicles { //abstract classes are build only for being inherited
-  color: string;
-  noOftyres: number;
-  model: string;
-  static locations = ["rrNagar", "jpNagar", "jayaNagar"] // static variables are properties of a class not object
 
-  constructor (color: string, noOftyres: number, model: string) {
-    this.color = color;
-    this.noOftyres = noOftyres;
-    this.model = model;
-  }
 
-  static bookTestDrive (userLocation: any) { // to use a static varible we have to make a static method
-    const available = Vehicles.locations.findIndex((e) => e === userLocation)
-    if (available > 0) {
-      console.log(`yes You can book a test drive at our branch in ${userLocation}` )
-    } else {
-      console.log("sorry for the inconvinence but we don't have branch at your location")
-    }
-  }
+// // ***********************INHERITANCE**************************
+//  abstract class Vehicles { //abstract classes are build only for being inherited
+//   color: string;
+//   noOftyres: number;
+//   model: string;
+//   static locations = ["rrNagar", "jpNagar", "jayaNagar"] // static variables are properties of a class not object
 
-  abstract extraFeatures (): void; //abstract methods are the methods with nothing inside them but it becomes
-  //mandatory to the classes to define these functions who ever is extending the class having abstract methods
+//   constructor (color: string, noOftyres: number, model: string) {
+//     this.color = color;
+//     this.noOftyres = noOftyres;
+//     this.model = model;
+//   }
 
-}
+//   static bookTestDrive (userLocation: any) { // to use a static varible we have to make a static method
+//     const available = Vehicles.locations.findIndex((e) => e === userLocation)
+//     if (available > 0) {
+//       console.log(`yes You can book a test drive at our branch in ${userLocation}` )
+//     } else {
+//       console.log("sorry for the inconvinence but we don't have branch at your location")
+//     }
+//   }
 
-class SuperCars extends Vehicles {
-  speed: number;
+//   abstract extraFeatures (): void; //abstract methods are the methods with nothing inside them but it becomes
+//   //mandatory to the classes to define these functions who ever is extending the class having abstract methods
 
-  constructor (color: string, noOftyres: number, model: string, speed: number) {
-    super(color, noOftyres, model)
-    this.speed = speed
-  }
+// }
 
-  extraFeatures(): string {
-    return ("it can transform to a robot")
-  }
-}
+// class SuperCars extends Vehicles {
+//   speed: number;
 
-const superCar1 = new SuperCars('black', 4, 'xcc1', 350)
-console.log(superCar1.extraFeatures())
-SuperCars.bookTestDrive('jpNagar')
+//   constructor (color: string, noOftyres: number, model: string, speed: number) {
+//     super(color, noOftyres, model)
+//     this.speed = speed
+//   }
+
+//   extraFeatures(): string {
+//     return ("it can transform to a robot")
+//   }
+// }
+
+// const superCar1 = new SuperCars('black', 4, 'xcc1', 350)
+// console.log(superCar1.extraFeatures())
+// SuperCars.bookTestDrive('jpNagar')
+
+
+// //*********************INTERFACE***********************/
+// //Interface defines the structure of an object that is how an object should look like
+// // interface are similar like obj type, where we used to define the structure of the obj but we can't use union type 
+// //in interface
+
+// interface student {
+//   name: string;
+//   id: number;
+// }
+// interface teacher extends student{
+//   introduction () : void
+// }
+
+// class SchoolMember implements teacher {
+//   name: string;
+//   id: number;
+
+//   constructor (name: string, id: number) {
+//     this.name = name;
+//     this.id = id;
+//   }
+
+//   introduction(): void {
+//       console.log(`Hi I am ${this.name}`)
+//   }
+
+// }
+
+// const obj = new SchoolMember("aman", 45)
+// console.log(obj)
+
