@@ -56,30 +56,59 @@
 
 //************************CREATING GENERIC CLASS*************************/
 
-class DataStorage<T> {
-  private data: T[] = []
-  constructor(data: T[]){
-    this.data = data
-  }
+// class DataStorage<T> {
+//   private data: T[] = []
+//   constructor(data: T[]){
+//     this.data = data
+//   }
 
-  addData(newData: T){
-    this.data.push(newData)
-  }
+//   addData(newData: T){
+//     this.data.push(newData)
+//   }
 
-  removeData(dataToRemove: T){
-    const index = this.data.findIndex((e) => e===dataToRemove)
-    if (index!== -1) {
-      this.data.splice(index, 1)
-    }
-  }
+//   removeData(dataToRemove: T){
+//     const index = this.data.findIndex((e) => e===dataToRemove)
+//     if (index!== -1) {
+//       this.data.splice(index, 1)
+//     }
+//   }
 
-  getData(){
-    return [...this.data]
-  }
+//   getData(){
+//     return [...this.data]
+//   }
 
-}
+// }
 
-const storeNumber = new DataStorage([5,7])
-storeNumber.addData(1)
-storeNumber.removeData(5)
-console.log(storeNumber.getData())
+// const storeNumber = new DataStorage([5,7])
+// storeNumber.addData(1)
+// storeNumber.removeData(5)
+// console.log(storeNumber.getData())
+
+
+//****************UTILITY TYPES******************
+//1--- Partial:- suppose we are having an object or interface having some property and that object we want to set as type of another obj
+// but here there is a problem, if the set the first object as the type of other then the new object must also contain all the properties
+// of the previous obj unless ts will not accept so to make these situation work we use partial generic type
+//2--- Readonly:- as the name suggest we we set any array or obj to Readonly we can't manipulate that.
+
+// interface course {
+//   title: string;
+//   description: string;
+//   date: Date
+// }
+
+// function setCourseGoal (title: string, description: string, date: Date): course {
+//   // return {
+//   //   title, description, date
+//   // }
+//   let duplicateCourseGoal: Partial<course> = {}
+//   duplicateCourseGoal.title = title
+//   duplicateCourseGoal.description = description
+//   duplicateCourseGoal.date = date
+//   return duplicateCourseGoal as course
+
+// }
+
+// console.log(setCourseGoal("react", "i have to complete this month", new Date(2024,1,18)))
+
+// let assignments : Readonly<string[]> = ['sana','subham']//we cannot mutate this array as this is readonly
